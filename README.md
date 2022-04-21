@@ -158,8 +158,9 @@ http localhost:8088/cartItems    # service url of store domain
 ```
 git clone https://github.com/msa-school/ddd-petstore-frontend-pet-domain
 ```
-- Port 설정변경
+- Port 설정변경 (package.json)
 ```
+    "serve": "vue-cli-service serve --port 8084",
 ```
 - 실행
 ```
@@ -196,13 +197,30 @@ module.exports = {
   },
 }
 ```
-- Gateway 설정
+- Gateway 설정 (gateway/../application.yml)
 ```
+        - id: pet-front
+          uri: http://localhost:8084
+          predicates:
+            - Path=/**
 ```
 
 ## store domain 의 front-end 실행
 ```
 git clone https://github.com/msa-school/ddd-petstore-frontend-store-domain
+npm i
+npm run serve
+```
+- Gateway 설정 (gateway/../application.yml)
+```
+        - id: store-front
+          uri: http://localhost:8085
+          predicates:
+            - Path=/shop/**, /shop/js/
+        - id: pet-front
+          uri: http://localhost:8084
+          predicates:
+            - Path=/**
 ```
 
 # Kubernetes 에 배포
