@@ -12,6 +12,28 @@ https://gitpod.io/#https://github.com/event-storming/ddd-petstore
 pip install httpie
 ```
 
+## Kafka 의 접속
+### Docker Compose 이용 (도커 있을 때 강추)
+- Kafka 의 실행 (Docker Compose)
+```
+cd kafka
+docker-compose up -d     # docker-compose 가 모든 kafka 관련 리소스를 받고 실행할 때까지 기다림
+```
+- Kafka 정상 실행 확인
+```
+$ docker-compose logs kafka | grep -i started    
+
+kafka-kafka-1  | [2022-04-21 22:07:03,262] INFO [KafkaServer id=1] started (kafka.server.KafkaServer)
+```
+- Kafka consumer 접속
+```
+docker-compose exec -it kafka /bin/bash   # kafka docker container 내부 shell 로 진입
+
+[appuser@e23fbf89f899 bin]$ cd/bin
+[appuser@e23fbf89f899 bin]$ ./kafka-console-consumer --bootstrap-server localhost:9092 --topic petstore
+```
+
+### 로컬 설치 (비추)
 - Kafka Download
 ```
 wget https://dlcdn.apache.org/kafka/3.1.0/kafka_2.13-3.1.0.tgz

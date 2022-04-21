@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @EnableAspectJAutoProxy
 //@EnableBinding(KafkaProcessor.class)
-public class StoreApplication {
+public class Application {
 	public static ApplicationContext applicationContext;
 	public static void main(String[] args) {
 
@@ -29,7 +29,7 @@ public class StoreApplication {
 		System.out.println("건강여부 =  "  +   health.checkHealthy());
 
 
-		applicationContext = SpringApplication.run(StoreApplication.class, args);
+		applicationContext = SpringApplication.run(Application.class, args);
 	}
 
 
