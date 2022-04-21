@@ -139,7 +139,7 @@ http :8083/cartItems customer="http://localhost:8083/customers/park@naver.com" i
 
 
 
-# Gateway (8080)
+# Gateway 를 통한 진입점 통일(8080)
 
 ```
 cd gateway
@@ -151,6 +151,61 @@ mvn spring-boot:run
 http localhost:8088/pets         # service url of pet domain
 http localhost:8088/cartItems    # service url of store domain
 ```
+
+# Micro Frontends 를 통한 접근
+## pet domain 의 front-end 실행
+- 코드 다운로드
+```
+git clone https://github.com/msa-school/ddd-petstore-frontend-pet-domain
+```
+- Port 설정변경
+```
+```
+- 실행
+```
+cd ddd-petstore-frontend-pet-domain/
+npm i
+npm run serve
+
+
+# 성공시
+ DONE  Compiled successfully in 12131ms                                                                                  11:19:42 PM
+
+
+  App running at:
+  - Local:   http://localhost:8084/ 
+  - Network: http://10.0.5.2:8084/
+
+  Note that the development build is not optimized.
+  To create a production build, run npm run build.
+
+
+```
+- 브라우저에서 접속 확인시 "Invalid Host Header" 인 경우 (Gitpod 인 경우)
+
+vue.config.js 설정 변경:
+```
+module.exports = {
+  transpileDependencies: [
+    'vuetify'
+  ],
+  devServer: {
+    allowedHosts: [
+      '8080-msaschool-dddpetstorele-unxdrc0wqhx.ws-us41.gitpod.io',  // 접속 URL (gitpod 팝업 url, http:// 부분, 끝의 / 부분 제외)
+    ],
+  },
+}
+```
+- Gateway 설정
+```
+```
+
+## store domain 의 front-end 실행
+```
+git clone https://github.com/msa-school/ddd-petstore-frontend-store-domain
+```
+
+# Kubernetes 에 배포
 
 # Docker 배포 관련
 
@@ -164,9 +219,9 @@ docker run pet:v1
 ```
 
 
-# Kubernetes 에 kafka 설치하기
+## kafka 설치하기
 
-## Helm 
+### Helm 
 
 Helm(패키지 인스톨러) 설치
 - Helm 3.x 설치(권장)
@@ -176,7 +231,7 @@ chmod 700 get_helm.sh
 ./get_helm.sh
 ```
 
-## Kafka 를 helm 으로 설치
+### Kafka 를 helm 으로 설치
 ```bash
 helm repo update
 helm repo add bitnami https://charts.bitnami.com/bitnami

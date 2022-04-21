@@ -16,6 +16,14 @@ spring:
           uri: http://localhost:8083
           predicates:
             - Path=/cartItems/**, /customers/**, /items/**
+        - id: store-front
+          uri: http://localhost:8085
+          predicates:
+            - Path=/shop/**, /shop/js/
+        - id: pet-front
+          uri: http://localhost:8084
+          predicates:
+            - Path=/**
         
       globalcors:
         corsConfigurations:
