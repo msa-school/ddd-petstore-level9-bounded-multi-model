@@ -1,7 +1,7 @@
 # ddd-petstore
 
 ## GitPod 접속
-https://gitpod.io/#https://github.com/event-storming/ddd-petstore
+https://gitpod.io/#https://github.com/msa-school/ddd-petstore-level9-bounded-multi-model
 
 - 접속 후 "Terminal > Terminal열기"
 
