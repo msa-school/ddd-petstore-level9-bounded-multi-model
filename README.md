@@ -116,9 +116,14 @@ http "http://localhost:8083/items" apperance=1 health=2 price[currency]="KR_WON"
 http "http://localhost:8083/items" apperance=2 health=1 price[currency]="EURO" price[amount]=200
 ```
 
-- 아까 등록한 두마리를 입양해본다. 이때는 한번의 Aggregate 이므로 한번에 등록이 되어야 한다. 
+- 가격을 매겨준다
+```
+http PATCH "http://localhost:8083/items/1" price[amount]=1000 price[currrency]=WON
+```
+
+- 아까 등록한 두마리를 입양해본다. 이때는 하나의 Aggregate 이므로 한번에 등록이 되어야 한다. 
 ```javascript
-http :8083/cartItems customer="http://localhost:8083/customers/park@naver.com" items:='["http://localhost:8083/items/1", "http://localhost:8083/items/2"]'
+http :8083/cartItems customer="http://localhost:8083/customers/park@naver.com" items[]="http://localhost:8083/items/1" items[]="http://localhost:8083/items/2"
 ```
 ![8083 입양](https://user-images.githubusercontent.com/59447401/147196784-6281b8a0-822a-47cb-9ef1-7632b2d509be.png)
 
