@@ -2,6 +2,8 @@ package com.example.petstore.domain;
 
 import org.springframework.beans.BeanUtils;
 
+import com.example.petstore.PetApplication;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,6 +95,7 @@ public abstract class Pet {     // Entity. Domain Class.
         }
 
     public void eat(){
+
         energy += 1;
 
         // if(listeners!=null){

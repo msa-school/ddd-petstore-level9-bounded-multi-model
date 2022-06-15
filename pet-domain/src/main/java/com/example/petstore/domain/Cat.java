@@ -41,5 +41,11 @@ public class Cat extends Pet implements Groomable, Runnable{
         
     }
 
+    @Override
+    public void eat(){
+        setEnergy(getEnergy() + 1);
+        setAppearance(getAppearance() + 1);
+    }
+
     
 }
