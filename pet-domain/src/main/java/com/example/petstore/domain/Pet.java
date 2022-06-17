@@ -103,6 +103,8 @@ public abstract class Pet {     // Entity. Domain Class.
         //         listeners.get(i).energyChanged(energy);
         //     }
         // }
+
+
     }
 
     public void sleep(){

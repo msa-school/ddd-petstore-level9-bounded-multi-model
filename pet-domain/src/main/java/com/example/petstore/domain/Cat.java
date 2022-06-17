@@ -45,6 +45,17 @@ public class Cat extends Pet implements Groomable, Runnable{
     public void eat(){
         setEnergy(getEnergy() + 1);
         setAppearance(getAppearance() + 1);
+
+
+        
+        PetFed petFed = new PetFed();
+        
+        petFed.setId(getId());
+        petFed.setEnergy(getEnergy());
+        petFed.setAppearance(getAppearance());
+
+        petFed.publishAfterCommit();
+
     }
 
     
