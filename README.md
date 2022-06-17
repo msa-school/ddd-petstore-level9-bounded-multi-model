@@ -237,8 +237,11 @@ npm run serve
 ```
 cd pet-store
 mvn package -B
-docker build -t pet:v1 .
-docker run pet:v1
+docker build -t <도커허브계정이름>/pet:v1 .
+docker run <도커허브계정이름>/pet:v1
+
+docker login
+docker push <도커허브계정이름>/pet:v1 
 ```
 
 
