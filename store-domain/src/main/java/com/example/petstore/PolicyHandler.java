@@ -11,6 +11,7 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
 @Service
+@Transactional
 public class PolicyHandler {
     @Autowired
     ItemRepository itemRepository;
