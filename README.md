@@ -263,3 +263,15 @@ helm repo update
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm install my-kafka bitnami/kafka
 ```
+
+
+
+# 다른 도메인서비스가 없는 경우
+```
+docker-compose exec -it kafka /bin/bash
+[appuser@01d073b35598 ~]$ cd /bin
+[appuser@01d073b35598 bin]$ ./kafka-console-producer --bootstrap-server localhost:9092 --topic petstore
+
+>{"eventType":"PetReserved","timestamp":1656637224644,"id":2,"appearance":0,"name":"멍이","type":"Cat","energy":1}
+>{"eventType":"PetUpdated","timestamp":1656637577180,"id":2,"appearance":5,"name":"멍이","type":"Cat","energy":1}
+```
