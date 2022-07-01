@@ -23,8 +23,8 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
   pet:
-    image: jinyoung/pet:v3
+    image: jinyoung/pet:v20220701
     depends_on:
       - kafka
     ports:
-      - 8089:8080
+      - 8081:8080

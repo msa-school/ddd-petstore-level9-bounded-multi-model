@@ -235,9 +235,9 @@ npm run serve
 각 프로젝트 내에는 Dockerfile 이 포함되어있습니다. 이것을 빌드하기 위해서는 우선 maven 빌드로 jar 를 만들어준 후, jar 를 Dockerfile 로 다시 빌드해줍니다:
 
 ```
-cd pet-store
-mvn package -B
-docker build -t <도커허브계정이름>/pet:v1 .
+cd pet-domain
+docker build -t <도커허브계정이름>/pet:vmvn package -B
+1 .
 docker run <도커허브계정이름>/pet:v1
 
 docker login
